@@ -12,10 +12,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Setup Java JDK 17
         uses: actions/setup-java@v4
@@ -38,6 +38,7 @@ jobs:
           ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Upload Output APK
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: SwiftDNS-Debug-APK
