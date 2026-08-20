@@ -1,0 +1,6 @@
+{
+  "name": "SpeedDNS - Local DNS Proxy & Cache Engine",
+  "description": "High-performance Local DNS UDP/TCP proxy and network cache engine with Go & BEAM actor queue architecture, instant 0ms pre-fetching, and host mapping.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
