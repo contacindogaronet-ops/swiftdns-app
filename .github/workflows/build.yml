@@ -21,10 +21,14 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Build with Gradle
+      - name: Make Gradlew Executable
         run: |
           cd android
           chmod +x gradlew
+
+      - name: Build with Gradle
+        run: |
+          cd android
           ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Upload Output APK
