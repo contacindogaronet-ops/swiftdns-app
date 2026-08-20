@@ -1,0 +1,6 @@
+{
+  "appId": "com.swiftdns.app",
+  "appName": "SwiftDNS",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
