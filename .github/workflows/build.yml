@@ -12,6 +12,11 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Setup Java JDK 17
         uses: actions/setup-java@v4
         with:
@@ -21,18 +26,18 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Make Gradlew Executable
+      - name: Install Dependencies & Sync Capacitor
         run: |
-          cd android
-          chmod +x gradlew
+          npm install
+          npx cap sync android
 
       - name: Build with Gradle
         run: |
           cd android
+          chmod +x gradlew
           ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Upload Output APK
-        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: SwiftDNS-Debug-APK
